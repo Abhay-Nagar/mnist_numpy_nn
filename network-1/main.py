@@ -263,7 +263,7 @@ model = load_data()
 weights = model[0]
 biases = model[1]
 print(y_test)
-'''
+
 correct = 0
 for i in range(len(x_test)):
     layer_4_act = make_prediction(x_test[i], weights, biases)[0][3]
@@ -271,6 +271,8 @@ for i in range(len(x_test)):
     print(y_test[i], prediction)
     if prediction == y_test[i]:
         correct+=1
+    else:
+        print('blalba')
     
         
 accuracy = correct/len(x_test)
@@ -319,5 +321,5 @@ for i in range(4):
 plt.tight_layout()
 plt.show()
 
-
+'''
 
