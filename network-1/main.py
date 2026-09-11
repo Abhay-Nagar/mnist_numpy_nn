@@ -29,8 +29,8 @@ def load_mnist(path, kind='train'):
 
 '''
 with np.load(path) as f:
-    x_train, y_train = f['x_train'], f['y_train']
-    x_test, y_test = f['x_test'], f['y_test']
+   x_train, y_train = f['x_train'], f['y_train']
+   x_test, y_test = f['x_test'], f['y_test']
 
 
 #x_train, y_train = load_mnist('./network-1/data/fashion', kind='train')
@@ -216,10 +216,10 @@ def randomise():
     
     return(ret_vals)
 
-def save_train(trained_model):
+def save_train(trained_model, as_what):
 
     np.savez(
-        "model_fashion.npz",
+        as_what,
         w3 = trained_model[0][0],
         w2 = trained_model[0][1],
         w1 = trained_model[0][2],
@@ -244,8 +244,8 @@ save_train(trained_model)
 
 '''
 
-def load_data():
-    data = np.load("model.npz")
+def load_data(which_one):
+    data = np.load(which_one)
 
     weights = [
         data["w3"],
@@ -258,7 +258,7 @@ def load_data():
         data["b1"]
     ]
     return [weights, biases]
-
+'''
 model = load_data()
 weights = model[0]
 biases = model[1]
@@ -277,7 +277,7 @@ for i in range(len(x_test)):
         
 accuracy = correct/len(x_test)
 print(accuracy, correct)
-'''
+
 test_i = 1
 layer_4_act = make_prediction(x_test[test_i], weights, biases)[0][3]
 prediction = np.argmax(layer_4_act)
